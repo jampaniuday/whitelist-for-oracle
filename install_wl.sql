@@ -4,17 +4,11 @@ accept wl_user_in CHAR PROMPT 'Enter White List User>'
 
 accept wl_tablespace_in CHAR PROMPT 'Enter White List Tablespace>'
 
---define log_file = 'proto-install.log';
+--define log_file = 'install.log';
 --define wl_user_in = 'WLSYS';
 --define wl_tablespace_in = 'WL_DATA';
 
---set serveroutput on;
---set serveroutput on format wrap;
---set termout off;
 set verify off;
---set feedback off;
-
-execute dbms_application_info.set_action('install white list');
 
 spool &log_file;
 
@@ -49,6 +43,3 @@ spool &log_file;
 @wl_filter.sql &wl_user_in
 
 spool off;
---set termout on;
---set verify on;
---set feedback on;
