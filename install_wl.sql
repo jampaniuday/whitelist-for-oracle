@@ -47,9 +47,7 @@ spool &log_file;
 @wl_config_data.sql &wl_user_in &wl_tablespace_in
 
 /* Create Profiles and Rules Tables */
-@wl_profiles_seq.sql &wl_user_in
 @wl_profiles.sql &wl_user_in &wl_tablespace_in
-@wl_rules_seq.sql &wl_user_in
 @wl_rules.sql &wl_user_in &wl_tablespace_in
 
 /* Create Approved and Blocked Views */
