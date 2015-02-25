@@ -1,9 +1,16 @@
---------------------------------------------------------
---  File created - Monday-February-09-2015   
---------------------------------------------------------
---------------------------------------------------------
---  DDL for View WL_APPROVED_PROFILES
---------------------------------------------------------
+/****************************************************************************
+* NAME:     WL_APPROVED_PROFILES
+*
+* PURPOSE:  This view illustrates which connection profiles would be 
+* approved to connect to the database, and the rule which would qualify them 
+* for access.
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  Magee            1. Created this view.
+*
+****************************************************************************/
 
   CREATE OR REPLACE FORCE VIEW "&1"."WL_APPROVED_PROFILES" ("PROFILE_ID", "RULE_ID") AS 
   SELECT P.PROFILE_ID,
