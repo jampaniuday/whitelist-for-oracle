@@ -1,13 +1,32 @@
---------------------------------------------------------
---  File created - Monday-February-09-2015   
---------------------------------------------------------
---------------------------------------------------------
---  DDL for View WL_BLOCKED_PROFILES
---------------------------------------------------------
+/****************************************************************************
+* NAME:     WL_BLOCKED_PROFILES
+*
+* PURPOSE:  This view illustrates which connection profiles would be 
+* denied access to the database, based on the current whitelist rules. 
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  Magee            1. Created this view.
+*
+****************************************************************************/
 
-  CREATE OR REPLACE FORCE VIEW "&1"."WL_BLOCKED_PROFILES" ("PROFILE_ID") AS 
+CREATE OR REPLACE FORCE VIEW "&1"."WL_BLOCKED_PROFILES" ("PROFILE_ID") AS 
   select profile_id from wl_profiles where profile_id not in (select distinct profile_id from wl_approved_profiles);
 
+/****************************************************************************
+* NAME:     WL_APPROVED_PROFILES_DETAIL
+*
+* PURPOSE:  This view illustrates which connection profiles would be 
+* approved to connect to the database, including the profile details, based
+* on the current whitelist rules.
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  Magee            1. Created this view.
+*
+****************************************************************************/
 
 CREATE OR REPLACE FORCE VIEW "&1".WL_BLOCKED_PROFILES_DETAIL
 (
