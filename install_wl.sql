@@ -1,15 +1,36 @@
+/****************************************************************************
+* NAME:     INSTALL_WL.SQL
+*
+* PURPOSE:  This script installs the whitelist database objects and prepares
+* them for first use. The script is interactive and requires no inputs.
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  pmdba            1. Created this script.
+*
+* NOTES:     This script must be run as a user with SYSDBA privileges.
+*
+****************************************************************************/
+
+/****************************************************************************
+* If running the script in batch mode, comment out the following "accept" 
+* lines.
+****************************************************************************/
 accept log_file PROMPT 'Enter log file>'
-
 accept wl_user_in CHAR PROMPT 'Enter White List User>'
-
 accept wl_tablespace_in CHAR PROMPT 'Enter White List Tablespace>'
 
+/****************************************************************************
+* If running the script in batch mode, un-comment out the following "define" 
+* lines and enter your desired parameters before running.
+****************************************************************************/
 --define log_file = 'install.log';
 --define wl_user_in = 'WLSYS';
 --define wl_tablespace_in = 'WL_DATA';
 
+/* Set environment and start spooling to the log file */
 set verify off;
-
 spool &log_file;
 
 /* Create WL Tablespace */
