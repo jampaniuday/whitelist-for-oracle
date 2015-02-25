@@ -1,9 +1,15 @@
---------------------------------------------------------
---  File created - Monday-February-09-2015   
---------------------------------------------------------
---------------------------------------------------------
---  DDL for Table WL_CONFIG
---------------------------------------------------------
+/****************************************************************************
+* NAME:     WL_CONFIG
+*
+* PURPOSE:  This table contains configuration parameters for the whitelist.
+* The script requires the schema name for the whitelist as an unput.
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  Magee            1. Created this table.
+*
+****************************************************************************/
 
   CREATE TABLE "&1"."WL_CONFIG" 
    (	"PARAMETER" VARCHAR2(30 BYTE), 
@@ -17,9 +23,10 @@
 
    COMMENT ON COLUMN "&1"."WL_CONFIG"."PARAMETER" IS 'White list configuration parameter name';
    COMMENT ON COLUMN "&1"."WL_CONFIG"."VALUE" IS 'White llist configuration parameter value';
---------------------------------------------------------
---  Constraints for Table WL_CONFIG
---------------------------------------------------------
+
+/****************************************************************************
+*  Constraints for Table WL_CONFIG
+****************************************************************************/
 
   ALTER TABLE "&1"."WL_CONFIG" MODIFY ("VALUE" NOT NULL ENABLE);
   ALTER TABLE "&1"."WL_CONFIG" MODIFY ("PARAMETER" NOT NULL ENABLE);
