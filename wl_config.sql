@@ -1,8 +1,12 @@
 /****************************************************************************
 * NAME:     WL_CONFIG.SQL
 *
-* PURPOSE:  This table contains configuration parameters for the whitelist.
-* The script requires the schema name for the whitelist as an unput.
+* PURPOSE:  This script creates the table which contains configuration 
+* parameters for the whitelist. The script requires the schema name and 
+* tablespace name for the whitelist as an unputs.
+*
+* INPUTS:    &1 = Schema Name
+*            &2 = Tablespace Name
 *
 * REVISIONS:
 * Ver        Date        Author           Description
