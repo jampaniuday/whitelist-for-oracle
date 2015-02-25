@@ -5,7 +5,7 @@
 * approved to connect to the database. The script requires the schema name
 * of the whitelist as an input.
 *
-* INPUTS:   &1 = Schema Name
+* INPUTS:    &1 = Schema Name
 *
 * REVISIONS:
 * Ver        Date        Author           Description
