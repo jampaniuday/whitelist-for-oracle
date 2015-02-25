@@ -14,6 +14,7 @@
 * 1.0        10/19/2014  pmdba            1. Created this script.
 *
 ****************************************************************************/
+
 /* Create the sequence for the rule_id */
 
   CREATE SEQUENCE  "&1"."WL_RULES_SEQ"  
