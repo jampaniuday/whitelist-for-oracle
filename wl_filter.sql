@@ -1,9 +1,16 @@
---------------------------------------------------------
---  File created - Monday-February-09-2015   
---------------------------------------------------------
---------------------------------------------------------
---  DDL for Trigger WL_FILTER
---------------------------------------------------------
+/****************************************************************************
+* NAME:     WL_FILTER.SQL
+*
+* PURPOSE:  This script creates the database logon trigger at the heard of
+* the whitelist. The script requires the schema name for the whitelist as an
+* input.
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  Magee            1. Created this script.
+*
+****************************************************************************/
 
   CREATE OR REPLACE TRIGGER "&1"."WL_FILTER" 
 AFTER LOGON
