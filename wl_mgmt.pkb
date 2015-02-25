@@ -9,7 +9,7 @@ create or replace package body               "&1".WL_MGMT
 * REVISIONS:
 * Ver        Date        Author           Description
 * ---------  ----------  ---------------  ----------------------------------
-* 1.0        10/19/2014  Magee            1. Created this package.
+* 1.0        10/19/2014  pmdba            1. Created this package.
 ****************************************************************************/
 
 as
