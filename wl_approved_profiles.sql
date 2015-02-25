@@ -1,15 +1,18 @@
 /****************************************************************************
-* NAME:     WL_APPROVED_PROFILES
+* NAME:     WL_APPROVED_PROFILES.SQL
 *
 * PURPOSE:  This view illustrates which connection profiles would be 
-* approved to connect to the database, and the rule which would qualify them 
-* for access.
+* approved to connect to the database.
 *
 * REVISIONS:
 * Ver        Date        Author           Description
 * ---------  ----------  ---------------  ---------------------------------
-* 1.0        10/19/2014  Magee            1. Created this view.
+* 1.0        10/19/2014  Magee            1. Created this script.
 *
+****************************************************************************/
+
+/****************************************************************************
+* The WL_APPROVED_PROFILES view lists the profile_id and the related rule_id
 ****************************************************************************/
 
   CREATE OR REPLACE FORCE VIEW "&1"."WL_APPROVED_PROFILES" ("PROFILE_ID", "RULE_ID") AS 
