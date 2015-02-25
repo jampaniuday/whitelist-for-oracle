@@ -1,3 +1,19 @@
+/****************************************************************************
+* NAME:     WL_MGMT.PKB
+*
+* PURPOSE:  This script creates the package body for wl_mgmt, which performs
+* all whitelist operations. The script requires the schema name for the
+* whitelist as an input.
+*
+* INPUTS:    &1 = Schema Name
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  pmdba            1. Created this script.
+*
+****************************************************************************/
+
 create or replace package body               "&1".WL_MGMT
 /****************************************************************************
 * NAME:     WL_MGMT
