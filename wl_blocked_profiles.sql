@@ -2,7 +2,10 @@
 * NAME:     WL_BLOCKED_PROFILES.SQL
 *
 * PURPOSE:  These views illustrate which connection profiles would be 
-* denied access to the database, based on the current whitelist rules. 
+* denied access to the database, based on the current whitelist rules. The
+* script requires the schema name of the whitelist as an input.
+*
+* INPUTS:    &1 = Schema Name
 *
 * REVISIONS:
 * Ver        Date        Author           Description
