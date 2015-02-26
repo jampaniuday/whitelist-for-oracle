@@ -1,3 +1,19 @@
+/****************************************************************************
+* NAME:     WL_MGMT.PKS
+*
+* PURPOSE:  This script creates the package specification for wl_mgmt, which 
+* performs all whitelist operations. The script requires the schema name for 
+* the whitelist as an input.
+*
+* INPUTS:    &1 = Schema Name
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  pmdba            1. Created this script.
+*
+****************************************************************************/
+
 create or replace PACKAGE               "&1".WL_MGMT
 /****************************************************************************
 * NAME:     WL_MGMT
@@ -9,7 +25,7 @@ create or replace PACKAGE               "&1".WL_MGMT
 * REVISIONS:
 * Ver        Date        Author           Description
 * ---------  ----------  ---------------  ---------------------------------
-* 1.0        10/19/2014  Magee            1. Created this package.
+* 1.0        10/19/2014  pmdba            1. Created this package.
 *
 * OVERVIEW:
 * The primary purpose of this package is to evaluate incoming connections

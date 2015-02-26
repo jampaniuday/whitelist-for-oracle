@@ -1,31 +1,35 @@
---------------------------------------------------------
---  File created - Monday-February-09-2015   
---------------------------------------------------------
---------------------------------------------------------
---  DDL for Trigger WL_FILTER
---------------------------------------------------------
+/****************************************************************************
+* NAME:     WL_FILTER.SQL
+*
+* PURPOSE:  This script creates the database logon trigger at the heard of
+* the whitelist. The script requires the schema name for the whitelist as an
+* input. The trigger is disabled by default to ensure that no connections
+* are blocked before appropriate rules are created.
+*
+* INPUTS:    &1 = Schema Name
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  Magee            1. Created this script.
+*
+****************************************************************************/
 
   CREATE OR REPLACE TRIGGER "&1"."WL_FILTER" 
 AFTER LOGON
 ON DATABASE
 /******************************************************************************
    NAME:       WL_FILTER
-   PURPOSE:    
+   PURPOSE:    To record profiles of incoming connection requests and evaluate
+               them against a set of rules to determine if they should be 
+               allowed.
 
    REVISIONS:
    Ver        Date        Author           Description
    ---------  ----------  ---------------  ------------------------------------
-   1.0        11/6/2014      1280210206E       1. Created this trigger.
+   1.0        11/6/2014   pmdba            1. Created this trigger.
 
    NOTES:
-
-   Automatically available Auto Replace Keywords:
-      Object Name:     WL_FILTER
-      Sysdate:         11/6/2014
-      Date and Time:   11/6/2014, 11:56:23 PM, and 11/6/2014 11:56:23 PM
-      Username:        1280210206E (set in TOAD Options, Proc Templates)
-      Table Name:       (set in the "New PL/SQL Object" dialog)
-      Trigger Options:  (set in the "New PL/SQL Object" dialog)
 ******************************************************************************/
 DECLARE
    v_RULE_ID NUMBER;

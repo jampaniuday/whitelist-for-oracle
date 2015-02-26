@@ -1,9 +1,32 @@
---------------------------------------------------------
---  File created - Monday-February-09-2015   
---------------------------------------------------------
---------------------------------------------------------
---  DDL for Table WL_PROFILES
---------------------------------------------------------
+/****************************************************************************
+* NAME:     WL_PROFILES.SQL
+*
+* PURPOSE:  This script creates the table which contains whitelist connection
+* profiles. It requires the schema name and tablespace name for the whitelist
+* as inputs.
+*
+* INPUTS:    &1 = Schema Name
+*            &2 = Tablespace Name
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  pmdba            1. Created this script.
+*
+****************************************************************************/
+
+/* Create the sequence for the profile_id column */
+
+  CREATE SEQUENCE  "&1"."WL_PROFILES_SEQ"  
+    MINVALUE 1 
+    MAXVALUE 9999999999999999999999999999 
+    INCREMENT BY 1 
+    START WITH 1 
+    CACHE 20 
+    NOORDER  
+    NOCYCLE ;
+
+/* Create the table */
 
   CREATE TABLE "&1"."WL_PROFILES" 
    (	"PROFILE_ID" NUMBER, 
@@ -52,18 +75,16 @@
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL KEEP FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "&2" ;
---------------------------------------------------------
---  DDL for Index WL_PROFILES_PK
---------------------------------------------------------
+  
+/* Create the index */
 
   CREATE UNIQUE INDEX "&1"."WL_PROFILES_PK" ON "&1"."WL_PROFILES" ("PROFILE_ID") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "&2" ;
---------------------------------------------------------
---  Constraints for Table WL_PROFILES
---------------------------------------------------------
+
+/* Create the constraints */
 
   ALTER TABLE "&1"."WL_PROFILES" ADD CONSTRAINT "WL_PROFILES_PK" PRIMARY KEY ("PROFILE_ID")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
@@ -72,9 +93,8 @@
   TABLESPACE "&2"  ENABLE;
   ALTER TABLE "&1"."WL_PROFILES" MODIFY ("LAST_USED_DATE" NOT NULL ENABLE);
   ALTER TABLE "&1"."WL_PROFILES" MODIFY ("PROFILE_ID" NOT NULL ENABLE);
---------------------------------------------------------
---  DDL for Trigger WL_PROFILES_TRG
---------------------------------------------------------
+
+/* Create the trigger for the profile_id column */
 
   CREATE OR REPLACE TRIGGER "&1"."WL_PROFILES_TRG" 
 BEFORE INSERT ON "&1".WL_PROFILES 

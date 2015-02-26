@@ -5,6 +5,8 @@
 * whitelist. The script requires the schema name for the whitelist as an 
 * input.
 *
+* INPUTS:    &1 = Schema Name
+*
 * REVISIONS:
 * Ver        Date        Author           Description
 * ---------  ----------  ---------------  ---------------------------------

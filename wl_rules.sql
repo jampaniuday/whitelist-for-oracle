@@ -1,10 +1,32 @@
---------------------------------------------------------
---  File created - Monday-February-09-2015   
---------------------------------------------------------
---------------------------------------------------------
---  DDL for Table WL_RULES
---------------------------------------------------------
+/****************************************************************************
+* NAME:     WL_RULES.SQL
+*
+* PURPOSE:  This script creates the table which contains whitelist connection
+* rules. It requires the schema name and tablespace name for the whitelist
+* as inputs.
+*
+* INPUTS:    &1 = Schema Name
+*            &2 = Tablespace Name
+*
+* REVISIONS:
+* Ver        Date        Author           Description
+* ---------  ----------  ---------------  ---------------------------------
+* 1.0        10/19/2014  pmdba            1. Created this script.
+*
+****************************************************************************/
 
+/* Create the sequence for the rule_id */
+
+  CREATE SEQUENCE  "&1"."WL_RULES_SEQ"  
+    MINVALUE 1 
+    MAXVALUE 9999999999999999999999999999 
+    INCREMENT BY 1 
+    START WITH 1 
+    CACHE 20 
+    NOORDER  
+    NOCYCLE ;
+
+/* Create the table */
   CREATE TABLE "&1"."WL_RULES" 
    (	"RULE_ID" NUMBER, 
 	"EXPIRE_DATE" DATE DEFAULT to_date('01-01-4000','MM-DD-YYYY'), 
@@ -52,18 +74,16 @@
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 MAXSIZE UNLIMITED BUFFER_POOL KEEP FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "&2" ;
---------------------------------------------------------
---  DDL for Index WL_RULES_PK
---------------------------------------------------------
+
+/* Create the index */
 
   CREATE UNIQUE INDEX "&1"."WL_RULES_PK" ON "&1"."WL_RULES" ("RULE_ID") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 MAXSIZE UNLIMITED BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "&2" ;
---------------------------------------------------------
---  Constraints for Table WL_RULES
---------------------------------------------------------
+
+/* Create the table constraints */
 
   ALTER TABLE "&1"."WL_RULES" ADD CONSTRAINT "WL_RULES_PK" PRIMARY KEY ("RULE_ID")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
@@ -72,9 +92,8 @@
   TABLESPACE "&2"  ENABLE;
   ALTER TABLE "&1"."WL_RULES" MODIFY ("EXPIRE_DATE" NOT NULL ENABLE);
   ALTER TABLE "&1"."WL_RULES" MODIFY ("RULE_ID" NOT NULL ENABLE);
---------------------------------------------------------
---  DDL for Trigger WL_RULES_TRG
---------------------------------------------------------
+
+/* Create the trigger for the rule_id column */
 
   CREATE OR REPLACE TRIGGER "&1"."WL_RULES_TRG" 
 BEFORE INSERT ON "&1".WL_RULES 
