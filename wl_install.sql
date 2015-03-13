@@ -1,5 +1,5 @@
 /****************************************************************************
-* NAME:     INSTALL_WL.SQL
+* NAME:     WL_INSTALL.SQL
 *
 * PURPOSE:  This script installs the whitelist database objects and prepares
 * them for first use. The script is interactive and requires no inputs.
